@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,63 +7,69 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:orientation="vertical"
+        android:id="@+id/outward"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/light_red"
         android:gravity="center_vertical"
+        android:orientation="vertical"
         android:padding="10dp"
-        android:background="@color/light_red">
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="left"
-                android:src="@drawable/ic_baseline_arrow_back_24">
-            </ImageView>
+                android:layout_gravity="start"
+                android:contentDescription="Back"
+                android:src="@drawable/ic_baseline_arrow_back_24" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="right"
-                android:layout_marginLeft="330dp"
-                android:src="@drawable/ic_baseline_edit_24">
-            </ImageView>
+                android:layout_gravity="end"
+                android:layout_marginStart="330dp"
+                android:contentDescription="Edit"
+                android:src="@drawable/ic_baseline_edit_24" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/horizontal_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:gravity="center_vertical"
-            android:layout_weight="1">
+            android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="250dp"
-                android:layout_marginLeft="45dp">
+                android:layout_marginStart="45dp"
+                app:cardCornerRadius="250dp">
 
                 <ImageView
                     android:id="@+id/profile_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher_ownIcon_round">
-                </ImageView>
+                    android:contentDescription="Personal Icon"
+                    android:src="@mipmap/ic_launcher_own_icon_round" />
 
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="20dp">
+                android:layout_marginStart="20dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/own_name"
@@ -74,20 +78,19 @@
                     android:text="Name"
                     android:textSize="35sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-                </TextView>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="dd.MM.yyyy"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/own_name"
                     app:layout_constraintEnd_toEndOf="@id/own_name"
-                    app:layout_constraintTop_toTopOf="@id/own_name">
-                </TextView>
+                    app:layout_constraintStart_toStartOf="@id/own_name"
+                    app:layout_constraintTop_toTopOf="@id/own_name" />
 
             </LinearLayout>
 
@@ -95,6 +98,19 @@
 
     </LinearLayout>
 
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="511dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outward">
 
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
