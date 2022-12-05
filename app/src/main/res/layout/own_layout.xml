@@ -50,7 +50,7 @@
 
         <include layout="@layout/profile_info" />
 
-        </LinearLayout>
+    </LinearLayout>
 
     <ScrollView
         android:id="@+id/scrollView"
