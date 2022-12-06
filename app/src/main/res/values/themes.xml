@@ -13,4 +13,10 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    
+    <!-- Hides weird bar on top -->
+    <style name="Theme.HiddenTitelTheme" parent="Theme.FriendsDasFreundebuch">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
 </resources>

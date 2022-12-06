@@ -6,7 +6,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    //start screen -> shows list of friends
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
