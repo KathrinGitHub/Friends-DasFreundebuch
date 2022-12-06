@@ -10,32 +10,13 @@
         android:id="@+id/floatingActionButton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@color/light_red"
         android:src="@drawable/ic_baseline_add_24"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outward" />
-
-    <SearchView
-        android:id="@+id/search_icon"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="right"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="90dp"
-        android:scaleX="2"
-        android:scaleY="2"
-        app:layout_constraintBottom_toBottomOf="@+id/user"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/user"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
-
-    </SearchView>
+        tools:ignore="MissingConstraints" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/user"
@@ -51,6 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="409dp"
         android:layout_height="570dp"
         android:layout_marginTop="20dp"
@@ -72,7 +54,9 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="start|center_vertical"
-                android:layout_weight="1"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="0"
                 android:src="@drawable/q6d8h7l8"
                 app:civ_border_color="#000000"
                 app:civ_border_width="1dp" />
@@ -88,33 +72,15 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/friendLine"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:orientation="horizontal"
-            tools:ignore="DuplicateIds">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/friendIcon"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="start|center_vertical"
-                android:layout_weight="1"
-                android:src="@drawable/q6d8h7l8"
-                app:civ_border_color="#000000"
-                app:civ_border_width="1dp" />
-
-            <TextView
-                android:id="@+id/friendName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_weight="1"
-                android:text="Fritz"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-        </LinearLayout>
     </LinearLayout>
 
+    <SearchView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="20dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/user" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
