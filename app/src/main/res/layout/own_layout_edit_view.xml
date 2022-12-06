@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,14 +8,15 @@
 
     <LinearLayout
         android:id="@+id/outward"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="438dp"
         android:background="@color/light_red"
         android:gravity="center_vertical"
+        android:minWidth="50dp"
+        android:minHeight="100dp"
         android:orientation="vertical"
-        android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
+        android:paddingTop="5dp"
+        android:paddingBottom="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -33,8 +33,10 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
                 android:layout_marginStart="350dp"
-                android:contentDescription="Edit"
                 android:background="@color/light_red"
+                android:contentDescription="Edit"
+                android:minWidth="24dp"
+                android:minHeight="24dp"
                 android:src="@drawable/ic_baseline_close_24" />
         </LinearLayout>
 
@@ -63,10 +65,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:src="@drawable/ic_baseline_add_24"
         android:backgroundTint="@color/light_red"
+        android:src="@drawable/ic_baseline_add_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outward" />
+        app:layout_constraintTop_toBottomOf="@+id/outward"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
