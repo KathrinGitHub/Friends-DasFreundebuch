@@ -32,7 +32,6 @@
                 android:layout_gravity="start"
                 android:layout_marginStart="8dp"
                 android:contentDescription="Back"
-                android:background=""
                 android:src="@drawable/ic_baseline_arrow_back_24" />
 
             <ImageButton
@@ -42,7 +41,6 @@
                 android:layout_gravity="end"
                 android:layout_marginStart="330dp"
                 android:contentDescription="Edit"
-                android:background=""
                 android:src="@drawable/ic_baseline_edit_24" />
 
 
