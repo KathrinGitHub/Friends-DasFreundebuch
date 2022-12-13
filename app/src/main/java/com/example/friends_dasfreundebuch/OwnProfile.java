@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 public class OwnProfile extends ListActivity {
 
+    private static final String TAG = "OwnProfile";
+
     ArrayList listItems = new ArrayList<>();
 
     ArrayAdapter adapter;

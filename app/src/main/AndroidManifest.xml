@@ -22,6 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".FriendProfile"></activity>
+        <activity android:name=".OwnProfile"></activity>
     </application>
 
 </manifest>

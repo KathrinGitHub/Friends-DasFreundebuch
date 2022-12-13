@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 public class FriendProfile extends ListActivity {
 
+    private static final String TAG = "FriendProfile";
+
     ArrayList listItems = new ArrayList<>();
 
     ArrayAdapter adapter;

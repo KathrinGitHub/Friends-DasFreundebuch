@@ -1,9 +1,11 @@
 package com.example.friends_dasfreundebuch;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -22,6 +24,8 @@ import java.util.ArrayList;
 import java.util.logging.Handler;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
     ListView listView;
     PersonListAdapter listAdapter;
 
@@ -83,4 +87,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void gotToMyPage(View view) {
+        Intent intent = new Intent(MainActivity.this, OwnProfile.class);
+        startActivity(intent);
+    }
+
+    public void goToFriendPage(View view) {
+        Intent intent = new Intent(MainActivity.this, FriendProfile.class);
+        startActivity(intent);
+
+    }
 }
