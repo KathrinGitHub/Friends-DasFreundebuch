@@ -11,12 +11,17 @@ import android.widget.SearchView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+
 import java.util.ArrayList;
 import java.util.logging.Handler;
 
 public class MainActivity extends AppCompatActivity {
-    //start screen -> shows list of friends
-
     ListView listView;
     PersonListAdapter listAdapter;
 
@@ -29,19 +34,28 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<dummyFriend> friends = new ArrayList<>();
         //create dummy entries
-        friends.add(new dummyFriend("lorem"));
-        friends.add(new dummyFriend("ipsum"));
-        friends.add(new dummyFriend("dolor"));
-        friends.add(new dummyFriend("sit"));
-        friends.add(new dummyFriend("amet"));
-        friends.add(new dummyFriend("consectetur"));
-        friends.add(new dummyFriend("adipiscing"));
-        friends.add(new dummyFriend("elit"));
-        friends.add(new dummyFriend("curabitur"));
-        friends.add(new dummyFriend("vel"));
+        friends.add(new dummyFriend("lorem", "drawable://" +  R.drawable.q6d8h7l8));
+        friends.add(new dummyFriend("ipsum", "drawable://" +  R.drawable.img159179884));
+        friends.add(new dummyFriend("dolor", "drawable://" +  R.drawable.img51487947));
+        friends.add(new dummyFriend("sit", "drawable://" +  R.drawable.q6d8h7l8));
+        friends.add(new dummyFriend("lorem2", "drawable://" +  R.drawable.q6d8h7l8));
+        friends.add(new dummyFriend("ipsum2", "drawable://" +  R.drawable.img159179884));
+        friends.add(new dummyFriend("dolor2", "drawable://" +  R.drawable.img51487947));
+        friends.add(new dummyFriend("sit2", "drawable://" +  R.drawable.q6d8h7l8));
+        friends.add(new dummyFriend("lorem3", "drawable://" +  R.drawable.q6d8h7l8));
+        friends.add(new dummyFriend("ipsum3", "drawable://" +  R.drawable.img159179884));
+        friends.add(new dummyFriend("dolor3", "drawable://" +  R.drawable.img51487947));
+        friends.add(new dummyFriend("sit3", "drawable://" +  R.drawable.q6d8h7l8));
+        friends.add(new dummyFriend("lorem4", "drawable://" +  R.drawable.q6d8h7l8));
+        friends.add(new dummyFriend("ipsum4", "drawable://" +  R.drawable.img159179884));
+        friends.add(new dummyFriend("dolor4", "drawable://" +  R.drawable.img51487947));
+        friends.add(new dummyFriend("sit4", "drawable://" +  R.drawable.q6d8h7l8));
 
         listAdapter = new PersonListAdapter(this, R.layout.friend_item, friends);
         listView.setAdapter(listAdapter);
+
+
+
     }
 
     @Override
