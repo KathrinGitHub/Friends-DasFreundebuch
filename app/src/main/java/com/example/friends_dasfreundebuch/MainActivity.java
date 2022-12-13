@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     ListView listView;
     PersonListAdapter listAdapter;
+    ArrayList<dummyFriend> friends;
 
 
     @Override
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.listFriends);
 
-        ArrayList<dummyFriend> friends = new ArrayList<>();
+        friends = new ArrayList<>();
         //create dummy entries
         friends.add(new dummyFriend("lorem", "drawable://" +  R.drawable.q6d8h7l8));
         friends.add(new dummyFriend("ipsum", "drawable://" +  R.drawable.img159179884));
@@ -58,13 +60,21 @@ public class MainActivity extends AppCompatActivity {
         listAdapter = new PersonListAdapter(this, R.layout.friend_item, friends);
         listView.setAdapter(listAdapter);
 
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                listView.getItemAtPosition(i);
+                Intent intent = new Intent(MainActivity.this, FriendProfile.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         getMenuInflater().inflate(R.menu.menu, menu);
         MenuItem menuItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) menuItem.getActionView();
@@ -90,11 +100,5 @@ public class MainActivity extends AppCompatActivity {
     public void gotToMyPage(View view) {
         Intent intent = new Intent(MainActivity.this, OwnProfile.class);
         startActivity(intent);
-    }
-
-    public void goToFriendPage(View view) {
-        Intent intent = new Intent(MainActivity.this, FriendProfile.class);
-        startActivity(intent);
-
     }
 }
