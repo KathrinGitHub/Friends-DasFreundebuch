@@ -5,13 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -69,12 +67,12 @@ public class PersonListAdapter extends ArrayAdapter<dummyFriend> {
 
         //create the imageloader object
         ImageLoader imageLoader = ImageLoader.getInstance();
-        ;
+
         int defaultImage = mContext.getResources().getIdentifier("@drawable/image_failed",null,mContext.getPackageName());
 
         //create display options
         DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true)
-                .cacheOnDisc(true).resetViewBeforeLoading(true)
+                .cacheOnDisk(true).resetViewBeforeLoading(true)
                 .showImageForEmptyUri(defaultImage)
                 .showImageOnFail(defaultImage)
                 .showImageOnLoading(defaultImage).build();
@@ -89,7 +87,7 @@ public class PersonListAdapter extends ArrayAdapter<dummyFriend> {
     private void setupImageLoader(){
         // UNIVERSAL IMAGE LOADER SETUP
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-                .cacheOnDisc(true).cacheInMemory(true)
+                .cacheOnDisk(true).cacheInMemory(true)
                 .imageScaleType(ImageScaleType.EXACTLY)
                 .displayer(new FadeInBitmapDisplayer(300)).build();
 
@@ -97,7 +95,7 @@ public class PersonListAdapter extends ArrayAdapter<dummyFriend> {
                 mContext)
                 .defaultDisplayImageOptions(defaultOptions)
                 .memoryCache(new WeakMemoryCache())
-                .discCacheSize(100 * 1024 * 1024).build();
+                .diskCacheSize(100 * 1024 * 1024).build();
 
         ImageLoader.getInstance().init(config);
         // END - UNIVERSAL IMAGE LOADER SETUP

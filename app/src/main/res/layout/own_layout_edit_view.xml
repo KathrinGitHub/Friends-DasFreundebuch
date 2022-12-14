@@ -55,6 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/outward">
 
         <ListView
+            android:id="@+id/own_edit_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </ScrollView>

@@ -1,17 +1,17 @@
 package com.example.friends_dasfreundebuch;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 
-public class OwnProfile extends ListActivity {
+public class OwnProfile extends AppCompatActivity {
 
     private static final String TAG = "OwnProfile";
 
@@ -26,12 +26,12 @@ public class OwnProfile extends ListActivity {
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listItems);
         ImageButton editBtn = findViewById(R.id.edit_button);
         ImageButton backBtn = findViewById(R.id.back_button);
-        ImageButton closeBtn = findViewById(R.id.close_button);
+
 
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.own_layout_edit_view);
+                startActivity(new Intent(OwnProfile.this, OwnEditProfile.class));
             }
         });
 
@@ -39,13 +39,6 @@ public class OwnProfile extends ListActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(OwnProfile.this, MainActivity.class));
-            }
-        });
-
-        closeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setContentView(R.layout.own_layout);
             }
         });
     }

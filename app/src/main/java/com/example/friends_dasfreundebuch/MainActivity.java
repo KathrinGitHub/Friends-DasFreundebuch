@@ -1,28 +1,18 @@
 package com.example.friends_dasfreundebuch;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
-
 import java.util.ArrayList;
-import java.util.logging.Handler;
 
 public class MainActivity extends AppCompatActivity {
 
