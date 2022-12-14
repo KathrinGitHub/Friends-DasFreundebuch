@@ -20,7 +20,7 @@ import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 
 import java.util.ArrayList;
 
-public class PersonListAdapter extends ArrayAdapter<dummyFriend> {
+public class PersonListAdapter extends ArrayAdapter<DummyProfile> {
     private static final String TAG = "PersonListAdapter";
     public Context mContext;
     int mResource;
@@ -30,7 +30,7 @@ public class PersonListAdapter extends ArrayAdapter<dummyFriend> {
         ImageView image;
     }
 
-    public PersonListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<dummyFriend> objects) {
+    public PersonListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<DummyProfile> objects) {
         super(context, resource, objects);
         mContext = context;
         mResource = resource;

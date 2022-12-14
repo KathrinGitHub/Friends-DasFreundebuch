@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     ListView listView;
     PersonListAdapter listAdapter;
-    ArrayList<dummyFriend> friends;
+    ArrayList<DummyProfile> friends;
 
 
     @Override
@@ -30,22 +30,22 @@ public class MainActivity extends AppCompatActivity {
 
         friends = new ArrayList<>();
         //create dummy entries
-        friends.add(new dummyFriend("lorem", "drawable://" +  R.drawable.q6d8h7l8));
-        friends.add(new dummyFriend("ipsum", "drawable://" +  R.drawable.img159179884));
-        friends.add(new dummyFriend("dolor", "drawable://" +  R.drawable.img51487947));
-        friends.add(new dummyFriend("sit", "drawable://" +  R.drawable.q6d8h7l8));
-        friends.add(new dummyFriend("lorem2", "drawable://" +  R.drawable.q6d8h7l8));
-        friends.add(new dummyFriend("ipsum2", "drawable://" +  R.drawable.img159179884));
-        friends.add(new dummyFriend("dolor2", "drawable://" +  R.drawable.img51487947));
-        friends.add(new dummyFriend("sit2", "drawable://" +  R.drawable.q6d8h7l8));
-        friends.add(new dummyFriend("lorem3", "drawable://" +  R.drawable.q6d8h7l8));
-        friends.add(new dummyFriend("ipsum3", "drawable://" +  R.drawable.img159179884));
-        friends.add(new dummyFriend("dolor3", "drawable://" +  R.drawable.img51487947));
-        friends.add(new dummyFriend("sit3", "drawable://" +  R.drawable.q6d8h7l8));
-        friends.add(new dummyFriend("lorem4", "drawable://" +  R.drawable.q6d8h7l8));
-        friends.add(new dummyFriend("ipsum4", "drawable://" +  R.drawable.img159179884));
-        friends.add(new dummyFriend("dolor4", "drawable://" +  R.drawable.img51487947));
-        friends.add(new dummyFriend("sit4", "drawable://" +  R.drawable.q6d8h7l8));
+        friends.add(new DummyProfile("lorem", "drawable://" +  R.drawable.q6d8h7l8, "1"));
+        friends.add(new DummyProfile("ipsum", "drawable://" +  R.drawable.img159179884, "2"));
+        friends.add(new DummyProfile("dolor", "drawable://" +  R.drawable.img51487947, "3"));
+        friends.add(new DummyProfile("sit", "drawable://" +  R.drawable.q6d8h7l8, "4"));
+        friends.add(new DummyProfile("lorem2", "drawable://" +  R.drawable.q6d8h7l8, "5"));
+        friends.add(new DummyProfile("ipsum2", "drawable://" +  R.drawable.img159179884, "6"));
+        friends.add(new DummyProfile("dolor2", "drawable://" +  R.drawable.img51487947, "7"));
+        friends.add(new DummyProfile("sit2", "drawable://" +  R.drawable.q6d8h7l8, "8"));
+        friends.add(new DummyProfile("lorem3", "drawable://" +  R.drawable.q6d8h7l8, "9"));
+        friends.add(new DummyProfile("ipsum3", "drawable://" +  R.drawable.img159179884, "10"));
+        friends.add(new DummyProfile("dolor3", "drawable://" +  R.drawable.img51487947, "11"));
+        friends.add(new DummyProfile("sit3", "drawable://" +  R.drawable.q6d8h7l8, "12"));
+        friends.add(new DummyProfile("lorem4", "drawable://" +  R.drawable.q6d8h7l8, "13"));
+        friends.add(new DummyProfile("ipsum4", "drawable://" +  R.drawable.img159179884, "14"));
+        friends.add(new DummyProfile("dolor4", "drawable://" +  R.drawable.img51487947, "15"));
+        friends.add(new DummyProfile("sit4", "drawable://" +  R.drawable.q6d8h7l8, "16"));
 
         listAdapter = new PersonListAdapter(this, R.layout.friend_item, friends);
         listView.setAdapter(listAdapter);

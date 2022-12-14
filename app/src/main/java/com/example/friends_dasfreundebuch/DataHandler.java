@@ -1,7 +1,6 @@
 package com.example.friends_dasfreundebuch;
 
 import java.util.HashMap;
-import java.util.Set;
 
 public class DataHandler {
 
@@ -18,6 +17,9 @@ public class DataHandler {
     public String getItem(String key) {
         return personalDataStorage.get(key);
     }
+
+
+
 
     /*
     @Override
