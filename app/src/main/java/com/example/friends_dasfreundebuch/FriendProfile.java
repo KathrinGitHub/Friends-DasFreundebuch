@@ -16,9 +16,9 @@ public class FriendProfile extends AppCompatActivity {
 
     private static final String TAG = "FriendProfile";
 
-    ArrayList listItems = new ArrayList<>();
+    public ArrayList listItems = new ArrayList<>();
 
-    ArrayAdapter adapter;
+    private ArrayAdapter adapter;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
