@@ -15,9 +15,9 @@ public class OwnProfile extends AppCompatActivity {
 
     private static final String TAG = "OwnProfile";
 
-    ArrayList listItems = new ArrayList<>();
+    public ArrayList listItems = new ArrayList<>();
 
-    ArrayAdapter adapter;
+    private ArrayAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
