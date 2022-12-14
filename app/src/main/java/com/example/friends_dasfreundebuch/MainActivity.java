@@ -2,6 +2,7 @@ package com.example.friends_dasfreundebuch;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         friends = new ArrayList<>();
         //create dummy entries
-        friends.add(new dummyFriend("lorem", "drawable://" +  R.drawable.q6d8h7l8));
+        friends.add(new dummyFriend("Stella", "drawable://" +  R.drawable.q6d8h7l8));
         friends.add(new dummyFriend("ipsum", "drawable://" +  R.drawable.img159179884));
         friends.add(new dummyFriend("dolor", "drawable://" +  R.drawable.img51487947));
         friends.add(new dummyFriend("sit", "drawable://" +  R.drawable.q6d8h7l8));
@@ -53,15 +54,17 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                listView.getItemAtPosition(i);
+                Object friend = listView.getItemAtPosition(i);
                 Intent intent = new Intent(MainActivity.this, FriendProfile.class);
-                startActivity(intent);
+
+                if (friend instanceof Parcelable) {
+                    intent.putExtra("friendObject", (Parcelable) friend);
+                    startActivity(intent);
+                }
             }
         });
 
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -85,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
-
 
     public void gotToMyPage(View view) {
         Intent intent = new Intent(MainActivity.this, OwnProfile.class);

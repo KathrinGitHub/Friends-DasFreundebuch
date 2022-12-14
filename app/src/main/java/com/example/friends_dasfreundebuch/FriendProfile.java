@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,7 +24,12 @@ public class FriendProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.friend_layout);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listItems);
-        ImageButton backBtn = findViewById(R.id.back_button_friend);
+        ImageButton backBtn = findViewById(R.id.back_button);
+
+        dummyFriend friend = getIntent().getParcelableExtra("friendObject");
+
+        TextView tv = findViewById(R.id.friendName);
+        tv.setText(friend.getName());
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
