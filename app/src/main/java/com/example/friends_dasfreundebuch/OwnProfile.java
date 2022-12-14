@@ -13,9 +13,9 @@ import java.util.ArrayList;
 
 public class OwnProfile extends ListActivity {
 
-    ArrayList listItems = new ArrayList<>();
+    public ArrayList listItems = new ArrayList<>();
 
-    ArrayAdapter adapter;
+    private ArrayAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

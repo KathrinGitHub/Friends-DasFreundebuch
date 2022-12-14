@@ -13,13 +13,13 @@ import java.util.ArrayList;
 
 public class FriendProfile extends ListActivity {
 
-    ArrayList listItems = new ArrayList<>();
+    public ArrayList listItems = new ArrayList<>();
 
-    ArrayAdapter adapter;
+    private ArrayAdapter adapter;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.own_layout);
+        setContentView(R.layout.friend_layout);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listItems);
         ImageButton backBtn = findViewById(R.id.back_button_friend);
 
