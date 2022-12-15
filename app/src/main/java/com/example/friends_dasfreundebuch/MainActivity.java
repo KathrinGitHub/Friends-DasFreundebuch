@@ -17,15 +17,16 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    ListView listView;
-    PersonListAdapter listAdapter;
-    ArrayList<DummyProfile> friends;
-
+    private ListView listView;
+    private PersonListAdapter listAdapter;
+    private ArrayList<DummyProfile> friends;
+    private DataHandler dataHandler = new DataHandler();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
         listView = findViewById(R.id.listFriends);
 
         friends = new ArrayList<>();
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         friends.add(new DummyProfile("ipsum4", "drawable://" +  R.drawable.img159179884, "14"));
         friends.add(new DummyProfile("dolor4", "drawable://" +  R.drawable.img51487947, "15"));
         friends.add(new DummyProfile("sit4", "drawable://" +  R.drawable.q6d8h7l8, "16"));
+
 
         listAdapter = new PersonListAdapter(this, R.layout.friend_item, friends);
         listView.setAdapter(listAdapter);

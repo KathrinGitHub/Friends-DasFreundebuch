@@ -1,6 +1,13 @@
 package com.example.friends_dasfreundebuch;
 
+import android.util.Log;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class DataHandler {
 
@@ -8,6 +15,7 @@ public class DataHandler {
 
     public DataHandler() {
         personalDataStorage = new HashMap<String, String>();
+        readFile("../friends.csv");
     }
 
     public void addItems(String key, String value) {
@@ -18,7 +26,32 @@ public class DataHandler {
         return personalDataStorage.get(key);
     }
 
+    private void readFile(String path) {
 
+        try {
+            List<String> csv = new ArrayList<>();
+            BufferedReader reader = new BufferedReader(new FileReader(path));
+            while(reader.ready()) {
+                csv.add(reader.readLine());
+            }
+            for (String line:csv) {
+                String[] array = line.split(";");
+                for (int i = 0; i < array.length - 1; i++) {
+                    if(i == 0) {
+                        addItems("Id", array[1]);
+                        continue;
+                    }
+                    addItems(array[i], array[i + 1]);
+                }
+            }
+        } catch (IOException e) {
+            Log.d("test", "not working or end of file");
+        } catch (IndexOutOfBoundsException e) {
+            Log.d("Exception", e.getMessage());
+        }
+
+
+    }
 
 
     /*

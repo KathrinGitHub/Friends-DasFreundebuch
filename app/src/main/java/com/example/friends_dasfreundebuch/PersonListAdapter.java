@@ -1,5 +1,6 @@
 package com.example.friends_dasfreundebuch;
 
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,13 +11,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 
 import java.util.ArrayList;
 
@@ -40,6 +34,16 @@ public class PersonListAdapter extends ArrayAdapter<DummyProfile> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        String name = getItem(position).getName();
+
+        //DummyProfile friend = new DummyProfile(name);
+        LayoutInflater inflater = LayoutInflater.from(mContext);
+        convertView = inflater.inflate(mResource, parent, false);
+
+        TextView textView = (TextView) convertView.findViewById(R.id.friendName);
+        textView.setText(name);
+        return convertView;
+        /*
         setupImageLoader();
         String name = getItem(position).getName();
         String image = getItem(position).getImgURL();
@@ -81,9 +85,10 @@ public class PersonListAdapter extends ArrayAdapter<DummyProfile> {
         imageLoader.displayImage(image, holder.image, options);
 
         return convertView;
+         */
     }
 
-
+/*
     private void setupImageLoader(){
         // UNIVERSAL IMAGE LOADER SETUP
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
@@ -100,6 +105,7 @@ public class PersonListAdapter extends ArrayAdapter<DummyProfile> {
         ImageLoader.getInstance().init(config);
         // END - UNIVERSAL IMAGE LOADER SETUP
     }
-
+*/
 
 }
+
