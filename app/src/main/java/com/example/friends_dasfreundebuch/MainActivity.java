@@ -13,6 +13,8 @@ import android.widget.SearchView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,17 +23,37 @@ public class MainActivity extends AppCompatActivity {
     ListView listView;
     PersonListAdapter listAdapter;
     ArrayList<dummyFriend> friends;
+    FloatingActionButton menuButton;
+    public boolean btnSwitch = true;
 
+    public int getVisibility(){
+        if (btnSwitch) return View.VISIBLE;
+        else return View.INVISIBLE;
+    }
+
+    public boolean setBtnSwitch() {
+        return this.btnSwitch = !btnSwitch;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.listFriends);
+        menuButton = findViewById(R.id.floatingActionButton3);
+
+
+
+        ArrayList<Attribute> attributes = new ArrayList<>();
+        attributes.add(new Attribute("Birthday:", "31.12.1993", "drawable://" + R.drawable.attribute));
+        attributes.add(new Attribute("mein Haustier:", "Filomena!", "drawable://" + R.drawable.attribute));
+        attributes.add(new Attribute("wir kennen uns seid:", "05.07.2010", "drawable://" + R.drawable.attribute));
 
         friends = new ArrayList<>();
+        dummyFriend stella = new dummyFriend("Stella", "drawable://" +  R.drawable.stella);
+
         //create dummy entries
-        friends.add(new dummyFriend("Stella", "drawable://" +  R.drawable.q6d8h7l8));
+        friends.add(stella);
         friends.add(new dummyFriend("ipsum", "drawable://" +  R.drawable.img159179884));
         friends.add(new dummyFriend("dolor", "drawable://" +  R.drawable.img51487947));
         friends.add(new dummyFriend("sit", "drawable://" +  R.drawable.q6d8h7l8));
@@ -64,6 +86,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.floatingActionButton1).setVisibility(getVisibility());
+                findViewById(R.id.floatingActionButton2).setVisibility(getVisibility());
+                setBtnSwitch();
+            }
+        });
+
+
     }
 
     @Override
@@ -93,4 +126,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, OwnProfile.class);
         startActivity(intent);
     }
+
+
 }
