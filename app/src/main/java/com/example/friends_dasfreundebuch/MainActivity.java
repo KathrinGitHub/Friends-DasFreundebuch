@@ -8,10 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -22,9 +20,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 //TODO
-// dynamische länge von listen
 // json to collection
-// background für attributes & messages
+// pictures are mixed up
 
 public class MainActivity extends AppCompatActivity {
 
@@ -67,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
         menuButtonOptions = findViewById(R.id.floatingActionButton2);
 
 
-        friends = DataInit.getFriendsList();
+        friends = FriendsDB.getFriendsList();
 
-        DataInit.toGson();
+//        FriendsDB.toGson();
         listAdapter = new PersonListAdapter(this, R.layout.friend_item, friends);
         listView.setAdapter(listAdapter);
 

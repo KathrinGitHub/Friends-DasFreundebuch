@@ -82,8 +82,22 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 tools:ignore="DuplicateIds">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|center_horizontal|fill_horizontal|center_vertical"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#E54848"
+                    android:text="About me:"
+                    android:textAlignment="center"
+                    android:textColor="#E54848"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <ListView
                     android:id="@+id/listAttributes"
@@ -99,14 +113,16 @@
                 tools:ignore="DuplicateIds">
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/textView1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|center_horizontal|fill_horizontal|center_vertical"
+                    android:layout_marginTop="15dp"
                     android:layout_weight="1"
                     android:backgroundTint="#E54848"
-                    android:text="Messages:"
+                    android:text="My Messages to You:"
                     android:textAlignment="center"
+                    android:textColor="#E54848"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 

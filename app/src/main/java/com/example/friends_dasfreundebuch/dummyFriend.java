@@ -22,6 +22,13 @@ public class dummyFriend implements Parcelable {
         this.messages = new ArrayList<>();
     }
 
+    public dummyFriend(String name, String imgURL, ArrayList<Attribute> attributes, ArrayList<Message> messages) {
+        this.name = name;
+        this.imgURL = imgURL;
+        this.attributes = attributes;
+        this.messages = messages;
+    }
+
     public ArrayList<Attribute> getAttributes() {
         return attributes;
     }

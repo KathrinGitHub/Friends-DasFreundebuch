@@ -3,7 +3,6 @@ package com.example.friends_dasfreundebuch;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -42,7 +41,8 @@ public class FriendProfile extends AppCompatActivity {
         ImageButton backBtn = findViewById(R.id.back_button);
         dummyFriend friend = getIntent().getParcelableExtra("friendObject");
 
-        for (Object o : DataInit.getFriendsList()) {
+
+        for (Object o : FriendsDB.getFriendsList()) {
             if (o instanceof dummyFriend && ((dummyFriend) o).getImgURL().equals(friend.getImgURL())) {
                 messages = ((dummyFriend) o).getMessages();
                 attributes = ((dummyFriend) o).getAttributes();
@@ -61,7 +61,7 @@ public class FriendProfile extends AppCompatActivity {
         messageListAdapter = new MessageListAdapter(this, R.layout.message_item, messages);
         messageListView.setAdapter(messageListAdapter);
 
-        int height = (attributes.size() * 230);
+        int height = (attributes.size() * 180);
         listView.getLayoutParams().height = height;
 
         backBtn.setOnClickListener(new View.OnClickListener() {
