@@ -7,28 +7,50 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
+//TODO
+// dynamische länge von listen
+// json to collection
+// background für attributes & messages
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    ListView listView;
-    PersonListAdapter listAdapter;
-    ArrayList<dummyFriend> friends;
-    FloatingActionButton menuButton;
+    private ListView listView;
+    private PersonListAdapter listAdapter;
+    private ArrayList<dummyFriend> friends;
+    private FloatingActionButton menuButton;
+    private FloatingActionButton menuButtonAddFriend;
+    private FloatingActionButton menuButtonOptions;
     public boolean btnSwitch = true;
 
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
+    private Button closeButton;
+
     public int getVisibility(){
-        if (btnSwitch) return View.VISIBLE;
-        else return View.INVISIBLE;
+        setBtnSwitch();
+        if (btnSwitch) {
+            menuButton.setRotation(45);
+            return View.VISIBLE;
+        }
+        else {
+            menuButton.setRotation(0);
+            return View.INVISIBLE;
+        }
     }
 
     public boolean setBtnSwitch() {
@@ -41,37 +63,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.listFriends);
         menuButton = findViewById(R.id.floatingActionButton3);
+        menuButtonAddFriend = findViewById(R.id.floatingActionButton1);
+        menuButtonOptions = findViewById(R.id.floatingActionButton2);
 
 
+        friends = DataInit.getFriendsList();
 
-        ArrayList<Attribute> attributes = new ArrayList<>();
-        attributes.add(new Attribute("Birthday:", "31.12.1993", "drawable://" + R.drawable.attribute));
-        attributes.add(new Attribute("mein Haustier:", "Filomena!", "drawable://" + R.drawable.attribute));
-        attributes.add(new Attribute("wir kennen uns seid:", "05.07.2010", "drawable://" + R.drawable.attribute));
-
-        friends = new ArrayList<>();
-        dummyFriend stella = new dummyFriend("Stella", "drawable://" +  R.drawable.stella);
-
-        //create dummy entries
-        friends.add(stella);
-        friends.add(new dummyFriend("ipsum", "drawable://" +  R.drawable.img159179884));
-        friends.add(new dummyFriend("dolor", "drawable://" +  R.drawable.img51487947));
-        friends.add(new dummyFriend("sit", "drawable://" +  R.drawable.q6d8h7l8));
-        friends.add(new dummyFriend("lorem2", "drawable://" +  R.drawable.q6d8h7l8));
-        friends.add(new dummyFriend("ipsum2", "drawable://" +  R.drawable.img159179884));
-        friends.add(new dummyFriend("dolor2", "drawable://" +  R.drawable.img51487947));
-        friends.add(new dummyFriend("sit2", "drawable://" +  R.drawable.q6d8h7l8));
-        friends.add(new dummyFriend("lorem3", "drawable://" +  R.drawable.q6d8h7l8));
-        friends.add(new dummyFriend("ipsum3", "drawable://" +  R.drawable.img159179884));
-        friends.add(new dummyFriend("dolor3", "drawable://" +  R.drawable.img51487947));
-        friends.add(new dummyFriend("sit3", "drawable://" +  R.drawable.q6d8h7l8));
-        friends.add(new dummyFriend("lorem4", "drawable://" +  R.drawable.q6d8h7l8));
-        friends.add(new dummyFriend("ipsum4", "drawable://" +  R.drawable.img159179884));
-        friends.add(new dummyFriend("dolor4", "drawable://" +  R.drawable.img51487947));
-        friends.add(new dummyFriend("sit4", "drawable://" +  R.drawable.q6d8h7l8));
-
+        DataInit.toGson();
         listAdapter = new PersonListAdapter(this, R.layout.friend_item, friends);
         listView.setAdapter(listAdapter);
+
+        int height = (friends.size() * 230);
+        listView.getLayoutParams().height = height;
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -90,12 +93,26 @@ public class MainActivity extends AppCompatActivity {
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                findViewById(R.id.floatingActionButton1).setVisibility(getVisibility());
-                findViewById(R.id.floatingActionButton2).setVisibility(getVisibility());
-                setBtnSwitch();
+                int temp = getVisibility();
+                findViewById(R.id.floatingActionButton1).setVisibility(temp);
+                findViewById(R.id.floatingActionButton2).setVisibility(temp);
+
             }
         });
 
+        menuButtonOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createComingSoonDialog();
+            }
+        });
+
+        menuButtonAddFriend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createComingSoonDialog();
+            }
+        });
 
     }
 
@@ -127,5 +144,20 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void createComingSoonDialog() {
+        dialogBuilder = new AlertDialog.Builder(this);
+        final View comingsoonPopupView = getLayoutInflater().inflate(R.layout.coming_soon_popup, null);
+        closeButton = (Button) comingsoonPopupView.findViewById(R.id.close);
 
+        dialogBuilder.setView(comingsoonPopupView);
+        dialog = dialogBuilder.create();
+        dialog.show();
+
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+    }
 }

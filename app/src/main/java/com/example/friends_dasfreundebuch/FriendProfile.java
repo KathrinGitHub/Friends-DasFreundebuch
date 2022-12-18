@@ -39,15 +39,16 @@ public class FriendProfile extends AppCompatActivity {
         listView = findViewById(R.id.listAttributes);
         messageListView = findViewById(R.id.messages);
 
-        attributes = new ArrayList<>();
-        attributes.add(new Attribute("Birthday:", "31.12.1993", "drawable://" + R.drawable.attribute));
-        attributes.add(new Attribute("Lieblingsfarbe:", "Blau", "drawable://" + R.drawable.attribute));
-        attributes.add(new Attribute("mein Haustier:", "Filomena!", "drawable://" + R.drawable.attribute));
-        attributes.add(new Attribute("wir kennen uns seid:", "05.07.2010", "drawable://" + R.drawable.attribute));
-
-
         ImageButton backBtn = findViewById(R.id.back_button);
         dummyFriend friend = getIntent().getParcelableExtra("friendObject");
+
+        for (Object o : DataInit.getFriendsList()) {
+            if (o instanceof dummyFriend && ((dummyFriend) o).getImgURL().equals(friend.getImgURL())) {
+                messages = ((dummyFriend) o).getMessages();
+                attributes = ((dummyFriend) o).getAttributes();
+            }
+        }
+
         TextView tv = findViewById(R.id.friendName);
         tv.setText(friend.getName());
         ImageView iv = (ImageView) findViewById(R.id.user);
@@ -57,11 +58,11 @@ public class FriendProfile extends AppCompatActivity {
         listAdapter = new AttributeListAdapter(this, R.layout.attribute_item, attributes);
         listView.setAdapter(listAdapter);
 
-        messages = new ArrayList<>();
-        messages.add(new Message("I glaub du hast den Kontest für bestes Foto gewonnen :)", "drawable://" + R.drawable.img_dummy));
-
         messageListAdapter = new MessageListAdapter(this, R.layout.message_item, messages);
         messageListView.setAdapter(messageListAdapter);
+
+        int height = (attributes.size() * 230);
+        listView.getLayoutParams().height = height;
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override

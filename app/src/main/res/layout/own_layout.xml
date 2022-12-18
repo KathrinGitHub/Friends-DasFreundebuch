@@ -74,4 +74,12 @@
             android:layout_height="wrap_content" />
     </ScrollView>
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:foregroundGravity="center_vertical|clip_horizontal|center|center_horizontal"
+        app:srcCompat="@drawable/coming_soon_sign"
+        tools:layout_editor_absoluteY="273dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

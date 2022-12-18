@@ -4,15 +4,38 @@ import android.media.Image;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class dummyFriend implements Parcelable {
 
     /*public int image;*/
     public String name;
     private String imgURL;
+    private ArrayList<Attribute> attributes;
+    private ArrayList<Message> messages;
 
     public dummyFriend(String name, String imgURL) {
         this.name = name;
         this.imgURL = imgURL;
+        this.attributes = new ArrayList<>();
+        this.messages = new ArrayList<>();
+    }
+
+    public ArrayList<Attribute> getAttributes() {
+        return attributes;
+    }
+
+    public void setAttributes(ArrayList<Attribute> attributes) {
+        this.attributes = attributes;
+    }
+
+    public ArrayList<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(ArrayList<Message> messages) {
+        this.messages = messages;
     }
 
     protected dummyFriend(Parcel in) {
