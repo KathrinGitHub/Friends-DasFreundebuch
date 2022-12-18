@@ -12,8 +12,6 @@
         android:layout_height="0dp"
         android:background="@color/light_red"
         android:gravity="center_vertical"
-        android:minWidth="50dp"
-        android:minHeight="100dp"
         android:orientation="vertical"
         android:paddingTop="5dp"
         android:paddingBottom="20dp"
@@ -35,8 +33,8 @@
                 android:layout_marginStart="8dp"
                 android:background="@color/light_red"
                 android:contentDescription="Back"
-                android:minWidth="24dp"
-                android:minHeight="24dp"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
                 android:src="@drawable/ic_baseline_arrow_back_24" />
 
             <ImageButton
@@ -44,11 +42,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
-                android:layout_marginStart="330dp"
+                android:layout_marginStart="280dp"
                 android:background="@color/light_red"
                 android:contentDescription="Edit"
-                android:minWidth="24dp"
-                android:minHeight="24dp"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
                 android:src="@drawable/ic_baseline_edit_24" />
 
 
@@ -58,20 +56,20 @@
 
     </LinearLayout>
 
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/list"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="511dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/outward">
 
-        <ListView
-            android:id="@+id/own_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </ScrollView>
+        <include layout="@layout/profile_content_item"/>
+        <include layout="@layout/profile_content_item"/>
+
+    </LinearLayout>
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

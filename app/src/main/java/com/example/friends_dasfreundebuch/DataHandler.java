@@ -15,7 +15,6 @@ public class DataHandler {
 
     public DataHandler() {
         personalDataStorage = new HashMap<String, String>();
-        readFile("../friends.csv");
     }
 
     public void addItems(String key, String value) {
@@ -26,6 +25,9 @@ public class DataHandler {
         return personalDataStorage.get(key);
     }
 
+
+
+    //for future data loading
     private void readFile(String path) {
 
         try {
@@ -44,6 +46,8 @@ public class DataHandler {
                     addItems(array[i], array[i + 1]);
                 }
             }
+            reader.close();
+            Log.d("test", "successful");
         } catch (IOException e) {
             Log.d("test", "not working or end of file");
         } catch (IndexOutOfBoundsException e) {

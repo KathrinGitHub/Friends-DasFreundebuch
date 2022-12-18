@@ -4,7 +4,6 @@ public class DummyProfile {
 
     /*public int image;*/
     private String name;
-    private String imgURL;
     private String ID;
     private int day = 01;
     private int month = 01;
@@ -13,7 +12,6 @@ public class DummyProfile {
 
     public DummyProfile(String name, String imgURL, String ID) {
         setName(name);
-        setImgURL(imgURL);
         setID(ID);
     }
 
@@ -23,14 +21,6 @@ public class DummyProfile {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getImgURL() {
-        return imgURL;
-    }
-
-    public void setImgURL(String imgURL) {
-        this.imgURL = imgURL;
     }
 
     public String getID() {
@@ -67,6 +57,6 @@ public class DummyProfile {
 
     @Override
     public String toString() {
-        return getID() + ";" + getName() + ";" + getImgURL() + ";" + getDay() + ";" + getMonth() + ";" + getYear();
+        return getID() + ";" + getName() + ";" + getDay() + ";" + getMonth() + ";" + getYear();
     }
 }

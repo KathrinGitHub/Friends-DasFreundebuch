@@ -8,6 +8,17 @@
             <PersistentState>
               <option name="children">
                 <map>
+                  <entry key="confirmationStep">
+                    <value>
+                      <PersistentState>
+                        <option name="values">
+                          <map>
+                            <entry key="resourceDirectory" value="main" />
+                          </map>
+                        </option>
+                      </PersistentState>
+                    </value>
+                  </entry>
                   <entry key="imageAssetPanel">
                     <value>
                       <PersistentState>
@@ -67,8 +78,8 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\kathr\AppData\Local\Temp\baseline_add_24.xml" />
+                                                <entry key="color" value="ffffff" />
+                                                <entry key="imagePath" value="C:\Users\kathr\AppData\Local\Temp\baseline_image_not_supported_24.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -79,7 +90,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/add/baseline_add_24.xml" />
+                                                <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/image_not_supported/baseline_image_not_supported_24.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -127,9 +138,9 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="e74848" />
+                                      <entry key="backgroundColor" value="d04d46" />
                                       <entry key="foregroundAssetType" value="CLIP_ART" />
-                                      <entry key="outputName" value="ic_launcher_add_button" />
+                                      <entry key="outputName" value="ic_launcher_category_item" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -323,7 +334,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/more_vert/baseline_more_vert_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/keyboard_arrow_down/baseline_keyboard_arrow_down_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -333,7 +344,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_baseline_more_vert_24" />
+                            <entry key="outputName" value="ic_baseline_keyboard_arrow_down_24" />
                             <entry key="sourceFile" value="C:\Users\kathr\OneDrive\Desktop\Uni\WS 2022_23\MobPlat\Friends-DasFreundebuch" />
                           </map>
                         </option>
