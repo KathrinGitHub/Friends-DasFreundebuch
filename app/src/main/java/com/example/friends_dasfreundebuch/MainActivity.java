@@ -2,7 +2,6 @@ package com.example.friends_dasfreundebuch;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,6 +33,16 @@ public class MainActivity extends AppCompatActivity {
         listView = findViewById(R.id.listFriends);
 
         friends = new ArrayList<>();
+
+        //doesn't want to work -> File not found Exception
+        /*
+        for (ArrayList<String> friendList : dataHandler.getFriendsList()) {
+            Log.d("id", friendList.get(1));
+            friends.add(new DummyProfile(friendList.get(1), friendList.get(0)));
+        }
+         */
+
+
         //create dummy entries
         friends.add(new DummyProfile("Franz",  "1"));
         friends.add(new DummyProfile("Harald",  "2"));
@@ -51,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         friends.add(new DummyProfile("Phillip",  "14"));
         friends.add(new DummyProfile("Jakob",  "15"));
         friends.add(new DummyProfile("Jeremia", "16"));
+
 
         listAdapter = new PersonListAdapter(this, R.layout.friend_item, friends);
         listView.setAdapter(listAdapter);
@@ -145,7 +155,6 @@ public class MainActivity extends AppCompatActivity {
         // get listview height
         int totalHeight = 0;
         int adapterCount = listAdapter.getCount();
-        Log.d("count", String.valueOf(adapterCount));
 
         for (int size = 0; size < adapterCount; size++) {
             View listItem = listAdapter.getView(size, null, myListView);
@@ -155,8 +164,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Change Height of ListView
         ViewGroup.LayoutParams params = myListView.getLayoutParams();
-        Log.d("getDivider", String.valueOf(myListView.getDividerHeight()));
-        Log.d("height", String.valueOf(totalHeight));
         //params.height = (int) (totalHeight + (myListView.getDividerHeight() * (adapterCount)));
         params.height = (adapterCount + 2) * 80;
         myListView.setLayoutParams(params);

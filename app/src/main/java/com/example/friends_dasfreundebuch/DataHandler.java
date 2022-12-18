@@ -1,20 +1,27 @@
 package com.example.friends_dasfreundebuch;
 
-import android.util.Log;
+import android.os.Environment;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 public class DataHandler {
 
     private HashMap<String, String> personalDataStorage;
 
+    private ArrayList<ArrayList<String>> friendsList;
+
+    private File correctPath = Environment.getExternalStorageDirectory();
+
     public DataHandler() {
-        personalDataStorage = new HashMap<String, String>();
+        friendsList = csvToList("files/friend_List.csv");
     }
 
     public void addItems(String key, String value) {
@@ -25,7 +32,9 @@ public class DataHandler {
         return personalDataStorage.get(key);
     }
 
-
+    public ArrayList<ArrayList<String>> getFriendsList() {
+        return friendsList;
+    }
 
     //for future data loading
     private void readFile(String path) {
@@ -47,11 +56,8 @@ public class DataHandler {
                 }
             }
             reader.close();
-            Log.d("test", "successful");
         } catch (IOException e) {
-            Log.d("test", "not working or end of file");
         } catch (IndexOutOfBoundsException e) {
-            Log.d("Exception", e.getMessage());
         }
 
 
@@ -68,6 +74,34 @@ public class DataHandler {
         }
         return str;
     }*/
+
+
+    public ArrayList<ArrayList<String>> csvToList(String path){
+
+        friendsList = new ArrayList<>();
+
+        try {
+            Scanner scanner = new Scanner(new FileReader(path)).useDelimiter(",|;\n");
+
+            while (scanner.hasNextLine()){
+
+                ArrayList<String> friend = new ArrayList<>();
+                friend.add(scanner.next());
+                friend.add(scanner.next());
+                friendsList.add(friend);
+
+
+            }
+            scanner.close();
+
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+
+        return friendsList;
+    }
+
+
 
     
 }
