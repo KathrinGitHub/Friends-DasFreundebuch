@@ -28,6 +28,10 @@ public class OwnProfile extends AppCompatActivity {
         //adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listItems);
         TextView category = findViewById(R.id.category);
         TextView content = findViewById(R.id.content);
+        TextView name = findViewById(R.id.name);
+        TextView date = findViewById(R.id.date);
+        name.setText(R.string.own_name);
+        date.setText(R.string.own_date);
         category.setText(b.getString("Category"));
         content.setText(b.getString("Content"));
         ImageButton editBtn = findViewById(R.id.edit_button);

@@ -34,7 +34,7 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:paddingTop="10dp"
-            android:text="Category"
+            android:text="@string/categoryDefault"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="15sp" />
 
@@ -45,7 +45,7 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:paddingTop="0dp"
-            android:text="Content"
+            android:text="@string/contentDefault"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="25sp" />
     </LinearLayout>

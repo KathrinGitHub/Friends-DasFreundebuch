@@ -24,6 +24,8 @@
         <activity android:name=".FriendProfile" />
         <activity android:name=".OwnProfile" />
         <activity android:name=".OwnEditProfile"/>
+        <activity android:name=".QrCode"/>
+        <activity android:name=".QrCodeScanner"/>
     </application>
 
 </manifest>

@@ -34,7 +34,6 @@
                 android:layout_gravity="end"
                 android:layout_marginStart="350dp"
                 android:background="@color/light_red"
-                android:contentDescription="Edit"
                 android:minWidth="24dp"
                 android:minHeight="24dp"
                 android:src="@drawable/ic_baseline_close_24" />

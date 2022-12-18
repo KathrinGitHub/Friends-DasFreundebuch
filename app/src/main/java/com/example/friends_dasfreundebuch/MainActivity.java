@@ -35,22 +35,22 @@ public class MainActivity extends AppCompatActivity {
 
         friends = new ArrayList<>();
         //create dummy entries
-        friends.add(new DummyProfile("lorem", "drawable://" +  R.drawable.q6d8h7l8, "1"));
-        friends.add(new DummyProfile("ipsum", "drawable://" +  R.drawable.img159179884, "2"));
-        friends.add(new DummyProfile("dolor", "drawable://" +  R.drawable.img51487947, "3"));
-        friends.add(new DummyProfile("sit", "drawable://" +  R.drawable.q6d8h7l8, "4"));
-        friends.add(new DummyProfile("lorem2", "drawable://" +  R.drawable.q6d8h7l8, "5"));
-        friends.add(new DummyProfile("ipsum2", "drawable://" +  R.drawable.img159179884, "6"));
-        friends.add(new DummyProfile("dolor2", "drawable://" +  R.drawable.img51487947, "7"));
-        friends.add(new DummyProfile("sit2", "drawable://" +  R.drawable.q6d8h7l8, "8"));
-        friends.add(new DummyProfile("lorem3", "drawable://" +  R.drawable.q6d8h7l8, "9"));
-        friends.add(new DummyProfile("ipsum3", "drawable://" +  R.drawable.img159179884, "10"));
-        friends.add(new DummyProfile("dolor3", "drawable://" +  R.drawable.img51487947, "11"));
-        friends.add(new DummyProfile("sit3", "drawable://" +  R.drawable.q6d8h7l8, "12"));
-        friends.add(new DummyProfile("lorem4", "drawable://" +  R.drawable.q6d8h7l8, "13"));
-        friends.add(new DummyProfile("ipsum4", "drawable://" +  R.drawable.img159179884, "14"));
-        friends.add(new DummyProfile("dolor4", "drawable://" +  R.drawable.img51487947, "15"));
-        friends.add(new DummyProfile("sit4", "drawable://" +  R.drawable.q6d8h7l8, "16"));
+        friends.add(new DummyProfile("Franz",  "1"));
+        friends.add(new DummyProfile("Harald",  "2"));
+        friends.add(new DummyProfile("Sebs",  "3"));
+        friends.add(new DummyProfile("Benj",  "4"));
+        friends.add(new DummyProfile("Bence",  "5"));
+        friends.add(new DummyProfile("Pasqual",  "6"));
+        friends.add(new DummyProfile("Andi",  "7"));
+        friends.add(new DummyProfile("Elli",  "8"));
+        friends.add(new DummyProfile("Isi",  "9"));
+        friends.add(new DummyProfile("Robert",  "10"));
+        friends.add(new DummyProfile("Samuel",  "11"));
+        friends.add(new DummyProfile("Noah",  "12"));
+        friends.add(new DummyProfile("Stefan",  "13"));
+        friends.add(new DummyProfile("Phillip",  "14"));
+        friends.add(new DummyProfile("Jakob",  "15"));
+        friends.add(new DummyProfile("Jeremia", "16"));
 
         listAdapter = new PersonListAdapter(this, R.layout.friend_item, friends);
         listView.setAdapter(listAdapter);
@@ -65,11 +65,38 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton menu = findViewById(R.id.floatingActionButton3);
-        menu.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton menuBtn = findViewById(R.id.floatingActionButton3);
+        menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                FloatingActionButton add = findViewById(R.id.miniFloatingActionButton1);
+                FloatingActionButton qr = findViewById(R.id.miniFloatingActionButton2);
+
+                if(add.getVisibility() == View.GONE) {
+                    add.setVisibility(View.VISIBLE);
+                    qr.setVisibility(View.VISIBLE);
+                    menuBtn.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24);
+                }
+                else if(add.getVisibility() == View.VISIBLE) {
+                    add.setVisibility(View.GONE);
+                    qr.setVisibility(View.GONE);
+                    menuBtn.setImageResource(R.drawable.ic_baseline_more_vert_24);
+                }
+
+                add.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(MainActivity.this, QrCodeScanner.class));
+                    }
+                });
+
+                qr.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(MainActivity.this, QrCode.class));
+                    }
+                });
             }
         });
 
@@ -104,8 +131,8 @@ public class MainActivity extends AppCompatActivity {
     public void gotToMyPage(View view) {
         Intent intent = new Intent(MainActivity.this, OwnProfile.class);
         Bundle b = new Bundle();
-        b.putString("Content", "Content");
-        b.putString("Category", "Category");
+        b.putString("Content", "Pizza");
+        b.putString("Category", "Lieblingsessen");
         intent.putExtras(b);
         startActivity(intent);
     }

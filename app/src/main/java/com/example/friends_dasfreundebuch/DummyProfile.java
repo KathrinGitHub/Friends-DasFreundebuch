@@ -7,10 +7,10 @@ public class DummyProfile {
     private String ID;
     private int day = 01;
     private int month = 01;
-    private int year = 2000;
+    private int year = 1999;
 
 
-    public DummyProfile(String name, String imgURL, String ID) {
+    public DummyProfile(String name, String ID) {
         setName(name);
         setID(ID);
     }

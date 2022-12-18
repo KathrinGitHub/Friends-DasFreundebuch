@@ -13,12 +13,43 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/light_red"
-        android:contentDescription="TODO"
         android:src="@drawable/ic_baseline_more_vert_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="MissingConstraints"
         app:borderWidth="2dp"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/miniFloatingActionButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/light_red"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintBottom_toTopOf="@+id/floatingActionButton3"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="15dp"
+        app:fabSize="mini"
+        app:borderWidth="2dp"
+        android:visibility="gone"
+        android:tooltipText="@string/tipAdd"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/miniFloatingActionButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/light_red"
+        android:src="@drawable/ic_baseline_qr_code_24"
+        app:layout_constraintBottom_toTopOf="@+id/miniFloatingActionButton1"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="10dp"
+        app:fabSize="mini"
+        app:borderWidth="2dp"
+        android:visibility="gone"
+        android:tooltipText="@string/tipQr"
+        />
 
 
     <LinearLayout
@@ -42,7 +73,8 @@
             android:clickable="true"
             android:focusable="true"
             android:onClick="gotToMyPage"
-            android:src="@mipmap/ic_launcher_own_icon_round"/>
+            android:src="@mipmap/ic_launcher_own_icon_round"
+            tools:ignore="UsingOnClickInXml" />
     </LinearLayout>
 
     <ListView

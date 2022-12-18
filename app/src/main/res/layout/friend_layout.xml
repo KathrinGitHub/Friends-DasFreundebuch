@@ -28,7 +28,6 @@
             android:layout_gravity="start"
             android:layout_marginStart="8dp"
             android:background="@color/light_red"
-            android:contentDescription="Back"
             android:minWidth="24dp"
             android:minHeight="24dp"
             android:src="@drawable/ic_baseline_arrow_back_24" />
@@ -37,20 +36,16 @@
 
     </LinearLayout>
 
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/list_friend"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="511dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/outward">
 
-        <ListView
-            android:id="@+id/friend_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </ScrollView>
+        <include layout="@layout/profile_content_item"/>
+        <include layout="@layout/profile_content_item"/>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

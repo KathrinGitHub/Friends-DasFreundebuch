@@ -30,7 +30,7 @@
             android:layout_gravity="center_vertical"
             android:paddingTop="10dp"
             android:layout_weight="1"
-            android:text="Category"
+            android:text="@string/category"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="15sp" />
 
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:text="Content"
+            android:text="@string/content"
             android:textSize="25sp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
     </LinearLayout>
